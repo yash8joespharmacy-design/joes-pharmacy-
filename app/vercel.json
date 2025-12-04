@@ -1,0 +1,30 @@
+{
+  "buildCommand": "next build",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_PHARMACY_NAME": "Joe's Pharmacy",
+    "NEXT_PUBLIC_PHARMACY_ADDRESS": "27691 Capshaw Road, Harvest, AL 35749",
+    "NEXT_PUBLIC_PHARMACY_PHONE": "256-230-3416",
+    "NEXT_PUBLIC_PHARMACY_EMAIL": "thejoespharmacy@gmail.com"
+  }
+}

@@ -1,0 +1,46 @@
+import { NextResponse } from "next/server"
+
+// Dynamic manifest generation
+export async function GET() {
+  const manifest = {
+    name: process.env.NEXT_PUBLIC_PHARMACY_NAME || "Joe's Pharmacy",
+    short_name: "Joe's Rx",
+    description: "HIPAA-compliant pharmacy services with prescription management and appointment scheduling",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#ffffff",
+    theme_color: "#0d9488",
+    orientation: "portrait",
+    icons: [
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any maskable",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any maskable",
+      },
+    ],
+    categories: ["health", "medical", "pharmacy"],
+    screenshots: [
+      {
+        src: "/screenshot-mobile.png",
+        sizes: "540x720",
+        type: "image/png",
+        form_factor: "narrow",
+      },
+      {
+        src: "/screenshot-desktop.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+      },
+    ],
+  }
+
+  return NextResponse.json(manifest)
+}
